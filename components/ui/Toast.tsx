@@ -177,6 +177,10 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
   }, []);
 
+  const removeToast = useCallback((id: string) => {
+    setToasts((prev) => prev.filter((toast) => toast.id !== id));
+  }, []);
+
   const addToast = useCallback(
     (toast: Omit<ToastProps, "id" | "onClose">): string => {
       const id = generateId();
@@ -292,6 +296,13 @@ const ToastItem = forwardRef<HTMLDivElement, ToastProps>(function ToastItem(
       setIsVisible(true);
     });
   }, []);
+
+  const handleClose = useCallback(() => {
+    setIsLeaving(true);
+    setTimeout(() => {
+      onClose(id);
+    }, 300);
+  }, [id, onClose]);
 
   // Handle auto-dismiss
   useEffect(() => {
