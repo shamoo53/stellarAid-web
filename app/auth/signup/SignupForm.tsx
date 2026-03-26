@@ -4,8 +4,8 @@ import { useCallback } from "react";
 import Link from 'next/link';
 import { Button, Input, useToast } from "@/components/ui";
 import PasswordInput from '@/components/passwordInput';
-import { FcGoogle } from "react-icons/fc";
-import { SiStellar } from "react-icons/si";
+// import { FcGoogle } from "react-icons/fc";
+// import { SiStellar } from "react-icons/si";
 
 // form & validation
 import { useForm, Controller } from 'react-hook-form';
