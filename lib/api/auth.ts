@@ -1,5 +1,5 @@
 import { apiClient } from "./interceptors";
-import { LoginResponse, ApiResponse, RegisterRequest } from "@/types/api";
+import { LoginResponse, ApiResponse, RegisterRequest, VerifyEmailRequest, ResendEmailRequest, ChangeEmailRequest } from "@/types/api";
 
 export const authApi = {
   login: async (credentials: any): Promise<ApiResponse<LoginResponse>> => {
@@ -45,6 +45,30 @@ export const authApi = {
   }): Promise<ApiResponse<void>> => {
     const response = await apiClient.post<ApiResponse<void>>(
       "/users/reset-password",
+      data,
+    );
+    return response.data;
+  },
+  
+  verifyEmail: async (data: VerifyEmailRequest): Promise<ApiResponse<void>> => {
+    const response = await apiClient.post<ApiResponse<void>>(
+      "/auth/verify-email",
+      data,
+    );
+    return response.data;
+  },
+
+  resendVerification: async (data: ResendEmailRequest): Promise<ApiResponse<void>> => {
+    const response = await apiClient.post<ApiResponse<void>>(
+      "/auth/resend-verification",
+      data,
+    );
+    return response.data;
+  },
+
+  changeEmail: async (data: ChangeEmailRequest): Promise<ApiResponse<void>> => {
+    const response = await apiClient.patch<ApiResponse<void>>(
+      "/auth/change-email",
       data,
     );
     return response.data;
