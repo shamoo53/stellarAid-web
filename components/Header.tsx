@@ -27,6 +27,12 @@ export default function Header() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">
+            <Link
+              href="/projects"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+            >
+              Browse Projects
+            </Link>
             {isAuthenticated ? (
               <ProfileDropdown />
             ) : (
@@ -66,6 +72,13 @@ export default function Header() {
           className="md:hidden border-t border-gray-200 px-4 py-4 space-y-3"
           style={{ backgroundColor: '#eef3fa' }}
         >
+          <Link
+            href="/projects"
+            onClick={() => setMobileOpen(false)}
+            className="block text-sm font-medium text-gray-700 hover:text-gray-900 py-2 transition-colors"
+          >
+            Browse Projects
+          </Link>
           {isAuthenticated ? (
             <div className="flex justify-center">
               <ProfileDropdown />
