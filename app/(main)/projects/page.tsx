@@ -245,7 +245,7 @@ export default function ProjectsPage() {
             <p className="text-neutral-500 text-center max-w-sm mb-8">
               We couldn't find any projects matching your current filters. Try adjusting your search or clear all filters.
             </p>
-            <Button variant="outline" onClick={() => setFilters({ sort: 'newest', verifiedOnly: false, status: 'all', urgentOnly: false })}>
+            <Button variant="outline" onClick={() => setFilters({ sort: 'newest', verifiedOnly: false, status: 'all', urgentOnly: false } as ProjectFiltersState)}>
               Clear All Filters
             </Button>
           </div>
