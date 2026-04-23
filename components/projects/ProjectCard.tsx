@@ -6,8 +6,22 @@ import { BadgeCheck, Zap, ArrowRight, Bookmark } from 'lucide-react';
 import { clsx } from 'clsx';
 import { useBookmarkStore } from '@/store/bookmarkStore';
 
-interface ProjectCardProps {
-  project: any;
+export interface ProjectCardProps {
+  project: {
+    id: string;
+    title: string;
+    category: string;
+    imageGradient?: string;
+    isVerified?: boolean;
+    isUrgent?: boolean;
+    status?: 'active' | 'completed' | 'almost-funded';
+    progress?: number;
+    currentAmount?: number;
+    targetAmount?: number;
+    raised?: number;
+    goal?: number;
+    imageUrl?: string;
+  };
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -119,3 +133,5 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     </div>
   );
 };
+
+export default ProjectCard;
